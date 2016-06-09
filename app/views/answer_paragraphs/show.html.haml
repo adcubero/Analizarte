@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Option:
+  = @answer_paragraph.option
+%p
+  %strong Evaluation:
+  = @answer_paragraph.evaluation
+%p
+  %strong Sentence:
+  = @answer_paragraph.sentence
+= link_to 'Edit', edit_answer_paragraph_path(@answer_paragraph)
+|
+= link_to 'Back', answer_paragraphs_path

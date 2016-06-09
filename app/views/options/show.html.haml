@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Sentence:
+  = @option.sentence
+%p
+  %strong Option:
+  = @option.option
+%p
+  %strong Correct:
+  = @option.correct
+= link_to 'Edit', edit_option_path(@option)
+|
+= link_to 'Back', options_path

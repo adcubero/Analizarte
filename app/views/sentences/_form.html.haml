@@ -1,0 +1,19 @@
+= form_for @sentence, @path do |f|
+  - if @sentence.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@sentence.errors.count, "error")
+        prohibited this sentence from being saved:
+      %ul
+        - @sentence.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :paragraph_id
+    %br/
+    = f.text_field :paragrah_id
+  .field
+    = f.label :sentence
+    %br/
+    = f.text_field :sentence
+  .actions
+    = f.submit

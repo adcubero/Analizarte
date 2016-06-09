@@ -1,0 +1,16 @@
+%p#notice= notice
+%h1 Listing Sentences
+%table
+  %thead
+    %tr
+      %th Paragraph
+      %th Sentence
+      %th{:colspan => "3"}
+  %tbody
+    - @sentences.each do |sentence|
+      %tr
+        %td= sentence.paragrah_id
+        %td= sentence.sentence
+        %td= link_to 'Options', exam_paragrah_sentence_options_path(Paragrah.find(sentence.paragrah_id).exam.id,sentence.paragrah_id,sentence.id)
+%br/
+= link_to 'New Sentence', new_exam_paragrah_sentence_path

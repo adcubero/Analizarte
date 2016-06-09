@@ -1,0 +1,2 @@
+module AnswerParagraphsHelper
+end

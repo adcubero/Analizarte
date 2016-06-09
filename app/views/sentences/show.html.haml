@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Paragraph:
+  = @sentence.paragraph
+%p
+  %strong Sentence:
+  = @sentence.sentence
+= link_to 'Edit', edit_sentence_path(@sentence)
+|
+= link_to 'Back', sentences_path

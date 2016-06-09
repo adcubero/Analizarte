@@ -1,0 +1,17 @@
+%p#notice= notice
+%h1 Listing Paragrahs
+%table
+  %thead
+    %tr
+      %th Exam
+      %th{:colspan => "3"}
+  %tbody
+    - @paragrahs.each do |paragrah|
+      %tr
+        %td= paragrah.exam
+        %td= link_to 'Edit', edit_exam_paragrah_path(paragrah.exam,paragrah)
+        %td= link_to 'Destroy', exam_paragrah_path(paragrah.exam,paragrah), method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Paragraphs', exam_paragrah_sentences_path(paragrah.exam,paragrah.id)
+%br/
+= link_to 'New Paragrah', new_exam_paragrah_path
+

@@ -1,0 +1,16 @@
+%p#notice= notice
+%h1 Listing Exams
+%table
+  %thead
+    %tr
+      %th Age
+      %th{:colspan => "3"}
+  %tbody
+    - @exams.each do |exam|
+      %tr
+        %td= exam.age
+        %td= link_to 'Show', exam
+        %td= link_to 'Edit', edit_exam_path(exam)
+        %td= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Exam', new_exam_path

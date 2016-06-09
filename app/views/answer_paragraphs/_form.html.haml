@@ -1,0 +1,23 @@
+= form_for(@answer_paragraph) do |f|
+  - if @answer_paragraph.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@answer_paragraph.errors.count, "error")
+        prohibited this answer_paragraph from being saved:
+      %ul
+        - @answer_paragraph.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :option_id
+    %br/
+    = f.text_field :option_id
+  .field
+    = f.label :evaluation_id
+    %br/
+    = f.text_field :evaluation_id
+  .field
+    = f.label :sentence_id
+    %br/
+    = f.text_field :sentence_id
+  .actions
+    = f.submit

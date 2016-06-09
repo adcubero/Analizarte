@@ -1,0 +1,15 @@
+= form_for(@evaluation) do |f|
+  - if @evaluation.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@evaluation.errors.count, "error")
+        prohibited this evaluation from being saved:
+      %ul
+        - @evaluation.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :exam_id
+    %br/
+    = f.text_field :exam_id
+  .actions
+    = f.submit
