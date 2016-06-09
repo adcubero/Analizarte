@@ -1,0 +1,22 @@
+%h1 Listing multiple_choices
+
+%table
+  %thead
+    %tr
+      %th Question
+      %th Exam
+      %th
+      %th
+      %th
+
+  %tbody
+    - @multiple_choices.each do |multiple_choice|
+      %tr
+        %td= multiple_choice.question
+        %td= multiple_choice.exam
+        %td= link_to 'Destroy', exam_multiple_choice_path(multiple_choice.exam,multiple_choice.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Options', exam_multiple_choice_multi_options_path(multiple_choice.exam,multiple_choice.id)
+
+%br
+
+= link_to 'New Multiple choice', new_exam_multiple_choice_path

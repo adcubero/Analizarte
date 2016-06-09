@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Question:
+  = @multiple_choice.question
+%p
+  %b Exam:
+  = @multiple_choice.exam
+
+= link_to 'Edit', edit_multiple_choice_path(@multiple_choice)
+\|
+= link_to 'Back', multiple_choices_path

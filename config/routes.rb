@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
   resources :answer_paragraphs
   resources :evaluations
   resources :exams do
+    resources :multiple_choices do
+      resources :multi_options
+    end
     resources :paragrahs do 
       resources :sentences do
         resources :options

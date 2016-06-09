@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Option:
+  = @multi_option.option
+%p
+  %b Multiple choice:
+  = @multi_option.multiple_choice
+
+= link_to 'Edit', edit_multi_option_path(@multi_option)
+\|
+= link_to 'Back', multi_options_path

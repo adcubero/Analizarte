@@ -1,0 +1,21 @@
+%h1 Listing multi_options
+
+%table
+  %thead
+    %tr
+      %th Option
+      %th Multiple choice
+      %th
+      %th
+      %th
+
+  %tbody
+    - @multi_options.each do |multi_option|
+      %tr
+        %td= multi_option.option
+        %td= multi_option.multiple_choice
+        %td= link_to 'Destroy', exam_multiple_choice_multi_option_path(MultipleChoice.find(multi_option.multiple_choice).exam.id,multi_option.multiple_choice,multi_option.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Multi option', new_exam_multiple_choice_multi_option_path

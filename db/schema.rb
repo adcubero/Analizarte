@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609015836) do
+ActiveRecord::Schema.define(version: 20160609075654) do
 
   create_table "answer_paragraphs", force: :cascade do |t|
     t.integer  "option_id"
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 20160609015836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "multi_options", force: :cascade do |t|
+    t.string   "option"
+    t.integer  "multiple_choice_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "multi_options", ["multiple_choice_id"], name: "index_multi_options_on_multiple_choice_id"
+
+  create_table "multiple_choices", force: :cascade do |t|
+    t.string   "question"
+    t.integer  "exam_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "multiple_choices", ["exam_id"], name: "index_multiple_choices_on_exam_id"
 
   create_table "options", force: :cascade do |t|
     t.integer  "sentence_id"
