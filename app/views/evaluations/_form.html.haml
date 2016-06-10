@@ -9,7 +9,11 @@
           %li= message
   .field
     = f.label :exam_id
-    %br/
-    = f.text_field :exam_id
+    = f.number_field :exam_id
+  .field
+    = f.label :score
+    = f.number_field :score
+  .field
+    = text_field_tag 'kid_email'
   .actions
     = f.submit

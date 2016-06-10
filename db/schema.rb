@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609202700) do
+ActiveRecord::Schema.define(version: 20160610181718) do
 
   create_table "answer_paragraphs", force: :cascade do |t|
     t.integer  "option_id"
@@ -29,15 +29,30 @@ ActiveRecord::Schema.define(version: 20160609202700) do
     t.integer  "exam_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "kid_id"
+    t.integer  "score"
   end
 
   add_index "evaluations", ["exam_id"], name: "index_evaluations_on_exam_id"
+  add_index "evaluations", ["kid_id"], name: "index_evaluations_on_kid_id"
 
   create_table "exams", force: :cascade do |t|
     t.integer  "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "kids", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password"
+    t.string   "name"
+    t.integer  "age"
+    t.integer  "tutor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "kids", ["tutor_id"], name: "index_kids_on_tutor_id"
 
   create_table "matches", force: :cascade do |t|
     t.string   "exam"
@@ -94,5 +109,14 @@ ActiveRecord::Schema.define(version: 20160609202700) do
   end
 
   add_index "sentences", ["paragrah_id"], name: "index_sentences_on_paragrah_id"
+
+  create_table "tutors", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password"
+    t.string   "name"
+    t.integer  "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

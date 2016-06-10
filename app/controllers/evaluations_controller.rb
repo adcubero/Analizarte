@@ -25,6 +25,8 @@ class EvaluationsController < ApplicationController
   # POST /evaluations.json
   def create
     @evaluation = Evaluation.new(evaluation_params)
+    @evaluation.kid_id = Kid.where(["email = ?", params[:kid_email]]).first.id
+    @evaluation.exam_id = 1
 
     respond_to do |format|
       if @evaluation.save
@@ -69,6 +71,6 @@ class EvaluationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluation_params
-      params.require(:evaluation).permit(:exam_id)
+      params.require(:evaluation).permit(:exam_id, :kid_email, :score)
     end
 end

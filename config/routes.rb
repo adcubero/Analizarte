@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :kids
+  resources :tutors
   resources :answer_paragraphs
   resources :evaluations
   resources :exams do

@@ -1,0 +1,29 @@
+%h1 Listing kids
+
+%table
+  %thead
+    %tr
+      %th Email
+      %th Password
+      %th Name
+      %th Age
+      %th Tutor
+      %th
+      %th
+      %th
+
+  %tbody
+    - @kids.each do |kid|
+      %tr
+        %td= kid.email
+        %td= kid.password
+        %td= kid.name
+        %td= kid.age
+        %td= kid.tutor
+        %td= link_to 'Show', kid
+        %td= link_to 'Edit', edit_kid_path(kid)
+        %td= link_to 'Destroy', kid, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Kid', new_kid_path

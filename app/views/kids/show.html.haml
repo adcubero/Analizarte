@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @kid.email
+%p
+  %b Password:
+  = @kid.password
+%p
+  %b Name:
+  = @kid.name
+%p
+  %b Age:
+  = @kid.age
+%p
+  %b Tutor:
+  = @kid.tutor
+
+= link_to 'Edit', edit_kid_path(@kid)
+\|
+= link_to 'Back', kids_path
