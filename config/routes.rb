@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :answer_paragraphs
   resources :evaluations
   resources :exams do
+    resources :matches
     resources :multiple_choices do
       resources :multi_options
     end

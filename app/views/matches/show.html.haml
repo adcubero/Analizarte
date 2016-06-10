@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Exam:
+  = @match.exam
+%p
+  %b Belongs to:
+  = @match.belongs_to
+%p
+  %b Option1:
+  = @match.option1
+%p
+  %b Option2:
+  = @match.option2
+
+= link_to 'Edit', edit_match_path(@match)
+\|
+= link_to 'Back', matches_path

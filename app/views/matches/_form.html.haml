@@ -1,0 +1,15 @@
+= form_for @match, @path do |f|
+  - if @match.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@match.errors.count, "error")} prohibited this match from being saved:"
+      %ul
+        - @match.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :option1
+    = f.text_field :option1
+  .field
+    = f.label :option2
+    = f.text_field :option2
+  .actions
+    = f.submit 'Save'

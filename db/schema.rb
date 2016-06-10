@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609075654) do
+ActiveRecord::Schema.define(version: 20160609202700) do
 
   create_table "answer_paragraphs", force: :cascade do |t|
     t.integer  "option_id"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20160609075654) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "matches", force: :cascade do |t|
+    t.string   "exam"
+    t.string   "option1"
+    t.string   "option2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "exam_id"
+  end
+
+  add_index "matches", ["exam_id"], name: "index_matches_on_exam_id"
 
   create_table "multi_options", force: :cascade do |t|
     t.string   "option"

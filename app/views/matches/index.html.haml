@@ -1,0 +1,23 @@
+%h1 Listing matches
+
+%table
+  %thead
+    %tr
+      %th Exam
+      %th Option1
+      %th Option2
+      %th
+      %th
+      %th
+
+  %tbody
+    - @matches.each do |match|
+      %tr
+        %td= match.exam
+        %td= match.option1
+        %td= match.option2
+        %td= link_to 'Destroy', exam_match_path(match.exam,match.id), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Match', new_exam_match_path
